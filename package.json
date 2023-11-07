@@ -4,7 +4,9 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "lint": "eslint",
+    "lint:fix": "eslint . --fix"
   },
   "repository": {
     "type": "git",
