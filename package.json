@@ -4,6 +4,8 @@
   "description": "",
   "main": "src/index.js",
   "scripts": {
+    "start": "webpack serve --mode development",
+    "build": "webpack --mode production",
     "test": "jest --coverage",
     "lint": "eslint",
     "lint:fix": "eslint . --fix"
@@ -26,7 +28,12 @@
     "eslint": "^8.53.0",
     "eslint-config-airbnb-base": "^15.0.0",
     "eslint-plugin-jest": "^27.6.0",
+    "html-loader": "^4.2.0",
+    "html-webpack-plugin": "^5.5.3",
     "jest": "^29.7.0",
-    "jest-babel": "^1.0.1"
+    "jest-babel": "^1.0.1",
+    "webpack": "^5.89.0",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^4.15.1"
   }
 }
