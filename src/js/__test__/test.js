@@ -1,48 +1,24 @@
-import { orderByProps } from "../sort";
-import { attackVariants } from "../attack";
+import { Validator } from "../validate";
 
-test("testing sort function", () => {
-    expect(orderByProps({name: 'мечник', health: 10, level: 2, attack: 80, defence: 40}, ["name", "level"])).toEqual([
-        {key: "name", value: "мечник"},
-        {key: "level", value: 2},
-        {key: "attack", value: 80}, 
-        {key: "defence", value: 40},
-        {key: "health", value: 10}
-      ])
-});
+test.each([
+  ['wefFEW-345fg', "wefFEW-345fg"],
+  ['выаыва', "Error in name"],
+  ['-wefw_234234', 'Error in name'],
+  ['2ferg_-ewf3r', 'Error in name'],
+  ['egerg-_43_rt', 'egerg-_43_rt']
+])(
+  (`test name`), (name, trueName) => {
+      expect(new Validator().validateUsername(name)).toBe(trueName);
+  })
 
-test('testing attackVarints function', function() {
-  const character = {
-    name: 'Лучник',
-    type: 'Bowman',
-    health: 50,
-    level: 3,
-    attack: 40,
-    defence: 10,
-    special: [
-      {
-        id: 8,
-        name: 'Двойной выстрел',
-        icon: 'http://...',
-        description: 'Двойной выстрел наносит двойной урон'
-      }, 
-      {
-        id: 9,
-        name: 'Нокаутирующий удар',
-        icon: 'http://...'
-      }
-    ]	
-  };
-  expect(attackVariants(character)).toEqual([{
-    id: 8,
-    name: 'Двойной выстрел',
-    icon: 'http://...',
-    description: 'Двойной выстрел наносит двойной урон'
-  }, 
-  {
-    id: 9,
-    name: 'Нокаутирующий удар',
-    icon: 'http://...',
-    description: 'Описание недоступно',
-  }])
-})
+  test.each([
+    ['8 (927) 000-00-00', '+79270000000'],
+    ['+7 960 000 00 00', '+79600000000'],
+    ['+86 000 000 0000', '+860000000000'],
+    ['8927 000-00-00', '+79270000000'],
+    ['+7-960-000-00-00', '+79600000000'],
+    ['+86-000 000 00-00', '+860000000000'],
+  ])(
+    (`test number`), (number, trueNumber) => {
+        expect(new Validator().validateNumber(number)).toBe(trueNumber);
+    })
