@@ -12,14 +12,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Nikolaytcev/ORP_JS-homework.git"
+    "url": "git+https://github.com/Nikolaytcev/HW_regex.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Nikolaytcev/ORP_JS-homework/issues"
+    "url": "https://github.com/Nikolaytcev/HW_regex.git/issues"
   },
-  "homepage": "https://github.com/Nikolaytcev/ORP_JS-homework#readme",
+  "homepage": "https://github.com/Nikolaytcev/HW_regex.git#readme",
   "devDependencies": {
     "@babel/cli": "^7.23.0",
     "@babel/core": "^7.23.2",
